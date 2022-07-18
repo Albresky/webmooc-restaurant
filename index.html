@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="css/restaurant.css" />
+		<link rel="icon" type="image/x-icon" href="images/logo.svg" />
+		<audio autoplay="autoplay" loop="loop" preload="auto" volume="0.5" src="media/bgm.mp3"></audio>
+		<title>餐厅</title>
+	</head>
+	<body>
+		<div class="Cover" id="welcomeCover">
+			<div>
+				<p class="coverTitle">WebMOOC餐厅开业啦！</p>
+				<p class="coverDetails">WebMOOC餐厅即将开业，请认真经营你的餐厅吧！经营餐厅需要做好下面几件事情，加油！</p>
+			</div>
+			<div class="welcomePoints">
+				<span class="ls">招聘厨师</span>
+				<span class="cs">迎接客人</span>
+				<span class="rs">烹饪美食</span>
+			</div>
+			<div class="start center barBg" id="start">开始经营吧</div>
+		</div>
+		<div class="black_overlay" id="blackOverlay"></div>
+		<div class="mainFramework">
+			<div class="timebar barBg left">
+				<span class="week left lm" id="currentWeek">W1</span>
+				<span class="day right rm" id="currentDay">D1</span>
+			</div>
+			<div class="scorebar barBg right">
+				<span class="score scorePos" id="currentMoney">1000</span>
+			</div>
+			<div class="kitchen" id="Kitchen">
+				<div class="wrapFull" id="floor1">
+					<span id="sCook_1" >
+						<button class="cookFree cookFit" name="acook">
+							<img src="images/cook.png" class="headerIMG" />
+							<img src="images/cooked.png" class="cooked" style="display: none;" />
+						</button>
+					</span>
+					<span id="sCook_2" style="display: none;">
+						<button class="cookFree cookFit" name="acook">
+							<img src="images/cook.png" class="headerIMG" />
+							<img src="images/cooked.png" class="cooked" style="display: none;" />
+							<div class="unEmploy" onclick="unEmployCook('cook2')" id="cook2">×</div>
+						</button>
+					</span>
+					<span id="sCook_3" style="display: none;">
+						<button class="cookFree cookFit" name="acook">
+							<img src="images/cook.png" class="headerIMG" />
+							<img src="images/cooked.png" class="cooked" style="display: none;" />
+							<div class="unEmploy" onclick="unEmployCook('cook3')" id="cook3">×</div>
+						</button>
+					</span>
+					<span>
+						<button class="addcook cookFit" id="addCook"></button>
+					</span>
+				</div>
+				<div class="wrapHalf" id="floor2" style="display: none;">
+					<span id="sCook_4" style="display: none;">
+						<button class="cookFree cookFit" name="acook">
+							<img src="images/cook.png" class="headerIMG" />
+							<img src="images/cooked.png" class="cooked" style="display: none;" />
+							<div class="unEmploy" onclick="unEmployCook('cook4')" id="cook4">×</div>
+						</button>
+					</span>
+					<span id="sCook_5" style="display: none;">
+						<button class="cookFree cookFit" name="acook">
+							<img src="images/cook.png" class="headerIMG" />
+							<img src="images/cooked.png" class="cooked" style="display: none;" />
+							<div class="unEmploy" onclick="unEmployCook('cook5')" id="cook5">×</div>
+						</button>
+					</span>
+					<span id="sCook_6" style="display: none;">
+						<button class="cookFree cookFit" name="acook">
+							<img src="images/cook.png" class="headerIMG" />
+							<img src="images/cooked.png" class="cooked" style="display: none;" />
+							<div class="unEmploy" onclick="unEmployCook('cook6')" id="cook6">×</div>
+						</button>
+					</span>
+					<span>
+						<button class="addcook cookFit" id="emNewCook" style="display: none;"></button>
+					</span>
+				</div>
+			</div>
+			<div class="tables" id="tables">
+				<div class="halfH">
+					<span>
+						<button class="noguest glt" name="0">
+						</button>
+					</span>
+					<div class="waitProgBox" name="prog0">
+					</div>
+					<span>
+						<button class="noguest grt" name="1">
+						</button>
+					</span>
+					<div class="waitProgBox" name="prog1">
+					</div>
+				</div>
+				<div class="halfH">
+					<span>
+						<button class="noguest glb" name="2"></button>
+					</span>
+					<div class="waitProgBox" name="prog2">
+					</div>
+					<span>
+						<button class="noguest grb" name="3"></button>
+					</span>
+					<div class="waitProgBox" name="prog3">
+					</div>
+				</div>
+			</div>
+			<div class="guests" id="guestsArea">
+			</div>
+		</div>
+		<div class="menuContainer" id="menuContainer">
+			<div class="guest guestBlue guestTitle" id="menuGHeader">
+				<img src="images/g2.png" class="headerIMG" />
+			</div>
+			<div class="menu" id="menu">
+				<div class="menuContent">
+					<div class="foodArea1 foodFonts">
+						<div class="foodCategory">凉菜（二选一，可不点）</div>
+						<div class="foods">
+							<span class="fdName"> <input type="checkbox" class="cb" name="ncb1"
+									onclick="singleChoice('ncb1',this)" />
+								水果沙拉</span>
+							<span>・・・・・・￥6</span>
+						</div>
+						<div class="foods">
+							<span class="fdName"> <input type="checkbox" class="cb" name="ncb1"
+									onclick="singleChoice('ncb1',this)" />
+								浇汁皮蛋豆腐</span>
+							<span><strong>・・・・・・</strong>￥4</span>
+						</div>
+					</div>
+					<div class="foodArea2 foodFonts">
+						<div class="foodCategory">主菜（五选一，必点）</div>
+						<div class="foods">
+							<span class="fdName"> <input type="radio" class="cb" name="rdFood" />
+								肉末粉丝煲</span>
+							<span>・・・・・・￥6</span>
+						</div>
+						<div class="foods">
+							<span class="fdName"> <input type="radio" class="cb" name="rdFood" />
+								干锅手撕包菜</span>
+							<span>・・・・・・￥6</span>
+						</div>
+						<div class="foods">
+							<span class="fdName"> <input type="radio" class="cb" name="rdFood" />
+								暴走大闸蟹</span>
+							<span>・・・・・・￥6</span>
+						</div>
+						<div class="foods">
+							<span class="fdName"> <input type="radio" class="cb" name="rdFood" />
+								蜜汁小龙虾</span>
+							<span>・・・・・・￥6</span>
+						</div>
+						<div class="foods">
+							<span class="fdName"> <input type="radio" class="cb" name="rdFood" />
+								糖醋排骨</span>
+							<span>・・・・・・￥6</span>
+						</div>
+					</div>
+					<div class="foodArea3 foodFonts">
+						<div class="foodCategory">饮品（二选一，可不点）</div>
+						<div class="foods">
+							<span class="fdName"> <input type="checkbox" class="cb" name="ncb2"
+									onclick="singleChoice('ncb2',this)" />
+								玫瑰情人露</span>
+							<span>・・・・・・￥6</span>
+						</div>
+						<div class="foods">
+							<span class="fdName"> <input type="checkbox" class="cb" name="ncb2"
+									onclick="singleChoice('ncb2',this)" />
+								蜂蜜决明茶</span>
+							<span>・・・・・・￥4</span>
+						</div>
+					</div>
+				</div>
+				<div class="menuChoice">
+					<div class="menuBtn barBg left" id="menuEnter">点好了，快点上菜</div>
+					<div class="menuBtn barBg w40" id="menuCancel">不吃了</div>
+				</div>
+			</div>
+		</div>
+		<div class="Cover" id="iemployCook" style="display: none;">
+			<div>
+				<p class="coverTitle">招聘新厨师</p>
+				<p class="coverDetails textLeft">招聘一名新厨师可以帮你更快地为顾客烹饪菜肴,</p>
+				<p class="coverDetails textLeft">增加餐厅收入。你最多可以拥有六名厨师。</p>
+				<p class="coverDetails textLeft">但每个厨师每周需要你支付工资￥<span id="cookWage"></span></p>
+				<p class="coverDetails textLeft">请问你确认招聘一名新厨师吗？</p>
+			</div>
+			<div class="menuChoice">
+				<div class="cookBtn barBg left" id="employEnter">是的，确认招聘</div>
+				<div class="cookBtn barBg w40" id="employCancel">先不了</div>
+			</div>
+		</div>
+		<div class="Cover" id="iUnemployCook" style="display: none;">
+			<div>
+				<p class="coverTitle">解雇厨师</p>
+				<p class="coverDetails textLeft">解雇当前闲置的厨师可以帮你节省成本。</p>
+				<p class="coverDetails textLeft">解雇时会按厨师本周已经工作的日子结算工资，</p>
+				<p class="coverDetails textLeft">并会赔偿一周工资作为解约金</p>
+				<p class="coverDetails textLeft">解雇当前厨师结霜工资及解决金需要付出￥<span id="unEmployCookFee"></span></p>
+			</div>
+			<div class="menuChoice">
+				<div class="cookBtn barBg left" id="unEmployEnter">是的，确认解雇</div>
+				<div class="cookBtn barBg w40" id="unEmployCancel">先不了</div>
+			</div>
+		</div>
+		<div class="Splash green" id="splashSeatsEmpty" style="display: none;">
+			<span class="seatsEmptySplash">
+				餐厅目前有空位，赶紧点击等位客人头像让客人入座点餐吧！
+			</span>
+		</div>
+		<div class="Splash pink" id="splashGusetLeft" style="display: none;">
+			<span class="seatsEmptySplash">
+				有个用户等位太久，跑掉了...
+			</span>
+		</div>
+		<div class="Splash pink" id="splashFood2Long" style="display: none;">
+			<span class="seatsEmptySplash">
+				上菜太慢了，用户跑掉了...
+			</span>
+		</div>
+		<div class="Splash pink" id="splashNoGuest" style="display: none;">
+			<span class="seatsEmptySplash">
+				今天的顾客走光了，等明天吧~
+			</span>
+		</div>
+		<div class="Splash pink" id="splashNoSeats" style="display: none;">
+			<span class="seatsEmptySplash">
+				现在餐桌已经满了，请耐心等待前面的顾客用餐完毕哦~
+			</span>
+		</div>
+		<div class="Splash pink" id="splashFullCooks" style="display: none;">
+			<span class="seatsEmptySplash">
+				厨房现在已经挤满厨师啦！
+			</span>
+		</div>
+		<div class="Splash green" id="splashEmployCookOK" style="display: none;">
+			<span class="seatsEmptySplash">
+				厨师招聘成功！您已经有<span id="cookNummm"></span>名厨师!
+			</span>
+		</div>
+		<div class="Splash pink" id="splashUnEmployCookOops" style="display: none;">
+			<span class="seatsEmptySplash">
+				你的金额已经不足支付解约金
+			</span>
+		</div>
+		<div class="Splash green" id="splashUnEmployCookOk" style="display: none;">
+			<span class="seatsEmptySplash" style="background-color: #d9e67d;">
+				解约厨师成功，解约支出￥<span id="unEmployCookFee2"></span>
+			</span>
+		</div>
+		<div class="Splash green" id="splashPaid" style="display: none;">
+			<span class="seatsEmptySplash" style="background-color: #d9e67d;">
+				<span id="guestname"></span>完成用餐，收获￥<span id="foodMoney"></span>
+			</span>
+		</div>
+	</body>
+	<footer>
+		<img src="images/g0.png" style="display: none;" />
+		<img src="images/g1.png" style="display: none;" />
+		<img src="images/g2.png" style="display: none;" />
+		<img src="images/g3.png" style="display: none;" />
+		<img src="images/g4.png" style="display: none;" />
+		<img src="images/g5.png" style="display: none;" />
+		<img src="images/g6.png" style="display: none;" />
+		<img src="images/payment.png" style="display: none;" />
+		<script type="text/javascript" src="js/index.js"></script>
+	</footer>
+</html>
